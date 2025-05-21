@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WearCycle - Clothing Hub</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #1e1e1e;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    #message {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>WearCycle</h1>
+    <p>Sustainable Clothing — Buy | Sell | Rent</p>
+    <nav>
+      <a href="#login">Login</a>
+      <a href="#register">Register</a>
+      <a href="#buy">Buy</a>
+      <a href="#sell">Sell</a>
+      <a href="#rent">Rent</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Login Section -->
+    <section id="login">
+      <h2>Login</h2>
+      <form onsubmit="handleLogin(event)">
+        <input type="text" id="loginUser" placeholder="Username" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <div id="loginMessage"></div>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register">
+      <h2>Register</h2>
+      <form onsubmit="handleRegister(event)">
+        <input type="text" id="regUser" placeholder="Username" required>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        <input type="password" id="regPass" placeholder="Password" required>
+        <button type="submit">Register</button>
+      </form>
+      <div id="registerMessage"></div>
+    </section>
+
+    <!-- Buy Section -->
+    <section id="buy">
+      <h2>Buy Clothes</h2>
+      <select>
+        <option value="">-- Select --</option>
+        <option value="new">New Clothes</option>
+        <option value="second-hand">Second-Hand Clothes</option>
+      </select>
+      <p>(Static demo. Link to real shop later.)</p>
+    </section>
+
+    <!-- Sell Section -->
+    <section id="sell">
+      <h2>Sell Your Clothes</h2>
+      <form onsubmit="handleSell(event)">
+        <input type="text" id="sellerName" placeholder="Your Name" required>
+        <input type="text" id="itemName" placeholder="Clothing Item Name" required>
+        <select id="condition" required>
+          <option value="">Condition</option>
+          <option value="new">New</option>
+          <option value="used">Used</option>
+        </select>
+        <input type="number" id="price" placeholder="Price (PKR)" required>
+        <textarea id="description" rows="3" placeholder="Description" required></textarea>
+        <button type="submit">Submit for Sale</button>
+      </form>
+      <div id="sellMessage"></div>
+    </section>
+
+    <!-- Rent Section -->
+    <section id="rent">
+      <h2>Rent Clothes</h2>
+      <form onsubmit="handleRent(event)">
+        <input type="text" id="renterName" placeholder="Your Name" required>
+        <select id="rentType" required>
+          <option value="new">New Clothes</option>
+          <option value="used">Used Clothes</option>
+        </select>
+        <input type="number" id="duration" placeholder="Rental Duration (days)" required>
+        <button type="submit">Submit Rent Request</button>
+      </form>
+      <div id="rentMessage"></div>
+    </section>
+  </main>
+
+  <script>
+    function handleRegister(e) {
+      e.preventDefault();
+      const user = document.getElementById('regUser').value;
+      document.getElementById('registerMessage').innerHTML = `<p>Welcome, ${user}! Your account has been created.</p>`;
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('loginUser').value;
+      document.getElementById('loginMessage').innerHTML = `<p>Hello ${user}, you are now logged in (demo only).</p>`;
+    }
+
+    function handleSell(e) {
+      e.preventDefault();
+      const name = document.getElementById('sellerName').value;
+      const item = document.getElementById('itemName').value;
+      document.getElementById('sellMessage').innerHTML = `<p>Thanks ${name}, your item "${item}" is submitted!</p>`;
+    }
+
+    function handleRent(e) {
+      e.preventDefault();
+      const name = document.getElementById('renterName').value;
+      const type = document.getElementById('rentType').value;
+      const duration = document.getElementById('duration').value;
+      document.getElementById('rentMessage').innerHTML = `<p>${name}, you requested to rent ${type} clothes for ${duration} days.</p>`;
+    }
+  </script>
+
+</body>
+</html>
