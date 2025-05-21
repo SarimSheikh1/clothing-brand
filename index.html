@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="SecondLife Apparel Logo" class="logo">
+            <img src="images/logo.png" alt="SecondLife Apparel Logo" class="logo">
             <h1>SecondLife Apparel</h1>
         </div>
         <nav>
@@ -24,16 +24,30 @@
         </nav>
         <div class="user-actions">
             <a href="#account"><i class="fas fa-user"></i></a>
-            <a href="#cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" id="cart-toggle"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
         </div>
     </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total">
+            Total: $<span id="cart-total">0.00</span>
+        </div>
+        <button class="btn primary checkout-btn">Proceed to Checkout</button>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
             <h2>Fashion with a Conscience</h2>
             <p>Buy, sell, or rent premium clothing sustainably</p>
             <div class="cta-buttons">
-                <a href="#shop" class="btn primary">Shop Now</a>
+                <a href="#shop" class="btn primary pulse">Shop Now</a>
                 <a href="#sell" class="btn secondary">Sell Your Clothes</a>
             </div>
         </div>
@@ -67,9 +81,7 @@
 
     <section id="featured" class="featured">
         <h2>Featured Items</h2>
-        <div class="product-grid">
-            <!-- Products will be loaded via JavaScript -->
-        </div>
+        <div class="product-grid" id="product-grid"></div>
     </section>
 
     <section class="sustainability">
@@ -118,36 +130,34 @@
         </div>
     </section>
 
+    <section id="sell" class="form-section">
+        <div class="form-container">
+            <h2>Sell Your Clothes</h2>
+            <form id="sell-form">
+                <!-- Form content same as before -->
+            </form>
+        </div>
+    </section>
+
+    <section id="rent" class="form-section">
+        <div class="form-container">
+            <h2>Rent Your Clothes</h2>
+            <form id="rent-form">
+                <!-- Form content same as before -->
+            </form>
+        </div>
+    </section>
+
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>SecondLife Apparel</h3>
-                <p>Redefining fashion through sustainability and circular economy principles.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#sell">Sell</a></li>
-                    <li><a href="#rent">Rent</a></li>
-                    <li><a href="#about">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>hello@secondlifeapparel.com</p>
-                <p>+1 (555) 123-4567</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 SecondLife Apparel. All rights reserved.</p>
-        </div>
+        <!-- Footer content same as before -->
     </footer>
+
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-product-content"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
